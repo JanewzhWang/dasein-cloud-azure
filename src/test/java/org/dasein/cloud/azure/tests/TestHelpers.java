@@ -18,6 +18,7 @@
 
 package org.dasein.cloud.azure.tests;
 
+import org.junit.Ignore;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -27,6 +28,7 @@ import java.io.*;
 /**
  * Created by Vlad_Munthiu on 6/6/2014.
  */
+@Ignore
 public class TestHelpers {
     public static Document getMockXmlResponse(String responsePath) {
         InputStream input = AzureProviderTests.class.getResourceAsStream(responsePath);

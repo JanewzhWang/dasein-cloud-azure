@@ -149,6 +149,7 @@ public class AzureMethodTests
     }
 }
 
+@Ignore
 @XmlRootElement(name="Dummy")
 @XmlAccessorType(XmlAccessType.NONE)
 class DummyTest

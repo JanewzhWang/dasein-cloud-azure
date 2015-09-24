@@ -20,6 +20,8 @@ package org.dasein.cloud.azure;
 
 import org.dasein.cloud.test.GlobalTestSuite;
 import org.dasein.cloud.test.StatelessTestSuite;
+import org.junit.Ignore;
 
+@Ignore
 public class TestSuite extends GlobalTestSuite{
 }
