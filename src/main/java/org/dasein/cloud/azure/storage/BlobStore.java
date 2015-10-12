@@ -558,7 +558,7 @@ public class BlobStore extends AbstractBlobStoreSupport<Azure> {
     @Override
     public void makePublic(@Nullable String bucket, @Nullable String object) throws InternalException, CloudException {
         if( bucket == null && object == null ) {
-            throw new CloudException("No such object: null/null");
+            throw new InternalException("No such object: null/null");
         }
         TreeMap <String, String> queries = new TreeMap <String, String>();
         TreeMap <String, String> headers = new TreeMap <String, String>();
@@ -581,13 +581,13 @@ public class BlobStore extends AbstractBlobStoreSupport<Azure> {
     @Override
     public void move(@Nullable String sourceBucket, @Nullable String object, @Nullable String targetBucket) throws InternalException, CloudException {
         if( sourceBucket == null ) {
-            throw new CloudException("No source bucket was specified");
+            throw new InternalException("No source bucket was specified");
         }
         if( targetBucket == null ) {
-            throw new CloudException("No target bucket was specified");
+            throw new InternalException("No target bucket was specified");
         }
         if( object == null ) {
-            throw new CloudException("No source object was specified");
+            throw new InternalException("No source object was specified");
         }
         copy(sourceBucket, object, targetBucket, object);
         removeObject(sourceBucket, object);
@@ -767,7 +767,7 @@ public class BlobStore extends AbstractBlobStoreSupport<Azure> {
     @Override
     public void renameObject(@Nullable String bucket, @Nonnull String object, @Nonnull String newName) throws CloudException, InternalException {
         if( bucket == null ) {
-            throw new CloudException("No bucket was specified");
+            throw new InternalException("No bucket was specified");
         }
         copy(bucket, object, bucket, newName);
         removeObject(bucket, object);

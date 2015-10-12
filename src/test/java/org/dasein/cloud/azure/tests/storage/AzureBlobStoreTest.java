@@ -681,7 +681,7 @@ public class AzureBlobStoreTest extends AzureTestsBaseWithLocation {
 		new BlobStore(azureMock).renameObject(BUCKET_ID, sourceObjectName, targetObjectName);
 	}
 	
-	@Test(expected=CloudException.class)
+	@Test(expected = InternalException.class)
 	public void renameObjectShouldThrowExceptionIfBucketNameIsNull() throws CloudException, InternalException {
 		
 		final String sourceObjectName = OBJECT_ID + "_SOURCE";
@@ -985,7 +985,7 @@ public class AzureBlobStoreTest extends AzureTestsBaseWithLocation {
 		new BlobStore(azureMock).makePublic(BUCKET_ID, OBJECT_ID);
 	}
 	
-	@Test(expected = CloudException.class)
+	@Test(expected = InternalException.class)
 	public void makePublicShouldThrowExceptionIfBucketAndObjectNameIsNull() throws InternalException, CloudException {
 		new BlobStore(azureMock).makePublic(null, null);
 	}
@@ -1051,17 +1051,17 @@ public class AzureBlobStoreTest extends AzureTestsBaseWithLocation {
 		new AzureBlobStoreSupport(azureMock, true).move(BUCKET_ID, OBJECT_ID, targetBucketName);
 	}
 	
-	@Test(expected = CloudException.class)
+	@Test(expected = InternalException.class)
 	public void moveShouldThrowExceptionIfSourceBucketIsNull() throws InternalException, CloudException {
 		new BlobStore(azureMock).move(null, OBJECT_ID, BUCKET_ID + "_TARGET");;
 	}
 	
-	@Test(expected = CloudException.class)
+	@Test(expected = InternalException.class)
 	public void moveShouldThrowExceptionIfObjectIsNull() throws InternalException, CloudException {
 		new BlobStore(azureMock).move(BUCKET_ID, null, BUCKET_ID + "_TARGET");;
 	}
 	
-	@Test(expected = CloudException.class)
+	@Test(expected = InternalException.class)
 	public void moveShouldThrowExceptionIfTargetBucketIsNull() throws InternalException, CloudException {
 		new BlobStore(azureMock).move(BUCKET_ID, OBJECT_ID, null);;
 	}
